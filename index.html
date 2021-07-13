@@ -1,88 +1,1108 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset=UTF-8 />
-    <link rel="stylesheet" type="text/css" href="styles.css" />
-  </head>
-  <body>
-    <script src="three.min.js"></script>
-    <script src="GLTFLoader.js"></script>
-    <script src="OrbitControls.js"></script>
-    <script src="three.module.js"></script>
-    <script>
-        //import * as THREE from 'three.module.js';
+<!-- saved from url=(0030)https://puberty2menopause.com/ -->
+<html xml:lang="en-gb" lang="en-gb" slick-uniqueid="3"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" type="image/jpg" href="https://puberty2menopause.com/favicon.ico">
+	    <!--<base href="https://puberty2menopause.com/">--><base href=".">
+	
+	<meta name="generator" content="Joomla! - Open Source Content Management">
+	<title>Home</title>
+	<link href="https://puberty2menopause.com/index.php?format=feed&amp;type=rss" rel="alternate" type="application/rss+xml" title="RSS 2.0">
+	<link href="https://puberty2menopause.com/index.php?format=feed&amp;type=atom" rel="alternate" type="application/atom+xml" title="Atom 1.0">
+	<link href="https://puberty2menopause.com/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
+	<link href="./Home_files/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link href="./Home_files/grid-responsive.css" rel="stylesheet" type="text/css">
+	<link href="./Home_files/bootstrap.css" rel="stylesheet" type="text/css">
+	<link href="./Home_files/master-9ce0dd640b4bab41369201704aed14fe.css" rel="stylesheet" type="text/css">
+	<link href="./Home_files/mediaqueries.css" rel="stylesheet" type="text/css">
+	<link href="./Home_files/ts_dotcom-custom.css" rel="stylesheet" type="text/css">
+	<link href="./Home_files/template.css" rel="stylesheet" type="text/css">
+	<link href="./Home_files/wall.css" rel="stylesheet" type="text/css">
+	<link href="./Home_files/template(1).css" rel="stylesheet" type="text/css">
+	<link href="./Home_files/template(2).css" rel="stylesheet" type="text/css">
+	<link href="./Home_files/template(3).css" rel="stylesheet" type="text/css">
+	<link href="./Home_files/settings.css" rel="stylesheet" type="text/css">
+	<link href="./Home_files/dynamic-captions.css" rel="stylesheet" type="text/css">
+	<link href="./Home_files/static-captions.css" rel="stylesheet" type="text/css">
+	<link href="./Home_files/djmegamenu.css" rel="stylesheet" type="text/css">
+	<link href="./Home_files/animations.css" rel="stylesheet" type="text/css">
+	<link href="./Home_files/offcanvas.css" rel="stylesheet" type="text/css">
+	<link href="./Home_files/djmobilemenu.css" rel="stylesheet" type="text/css">
+	<link href="./Home_files/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<style type="text/css">
+a, ul.menu li .separator {color:#378DDB;}.button, .readon, .readmore, button.validate, #member-profile a, #member-registration a, .formelm-buttons button, .btn-primary {border-color:#1a5992;}.button, .readon, .readmore, button.validate, #member-profile a, #member-registration a, .formelm-buttons button, .btn-primary {background-color: #4897de; background: linear-gradient(top, rgba(72,151,222,1) 0%, rgba(35,118,193,1) 100%); background: -webkit-linear-gradient(top, rgba(72,151,222,1) 0%, rgba(35,118,193,1) 100%);}
+.button:hover, .readon:hover, .readmore:hover, button.validate:hover, #member-profile a:hover, #member-registration a:hover, .formelm-buttons button:hover, .btn-primary:hover {background-color: #62a6e3; background: linear-gradient(top, rgba(98,166,227,1) 0%, rgba(42,134,217,1) 100%); background: -webkit-linear-gradient(top, rgba(98,166,227,1) 0%, rgba(42,134,217,1) 100%);}
+.button:active, .readon:active, .readmore:active, button.validate:active, #member-profile a:active, #member-registration a:active, .formelm-buttons button:active, .btn-primary:active {background-color: #2e88d9; background: linear-gradient(top, rgba(46,136,217,1) 0%, rgba(90,161,225,1) 100%); background: -webkit-linear-gradient(top, rgba(46,136,217,1) 0%, rgba(90,161,225,1) 100%);}
+#rt-logo {background: url(/images/logo.png) 50% 0 no-repeat !important;}
+#rt-logo {width: 150px;height: 86px;}
 
-        let camera, scene, renderer;
-        let geometry, material, mesh;
+.dj-hideitem { display: none !important; }
 
-        init();
+#dj-megamenu90, #dj-megamenu90sticky { background: rgba(255, 255, 255, 0); } #dj-megamenu90 li a.dj-up_a { border-right-color: rgba( 204, 204, 204, 0); border-left-color: rgba( 255, 255, 255, 0); } #dj-megamenu90.verticalMenu li a.dj-up_a { border-bottom-color: rgba( 255, 255, 255, 0); border-top-color: rgba( 204, 204, 204, 0); } #dj-megamenu90 li a.dj-up_a { color: #ffffff; } #dj-megamenu90 li a.dj-up_a small.subtitle { color: #999999; } #dj-megamenu90 li:hover a.dj-up_a, #dj-megamenu90 li.hover a.dj-up_a, #dj-megamenu90 li.active a.dj-up_a { background: rgba(255, 255, 255, 0); border-right-color: rgba( 204, 204, 204, 0); border-left-color: rgba( 255, 255, 255, 0); } #dj-megamenu90 li:hover a.dj-up_a, #dj-megamenu90 li.hover a.dj-up_a, #dj-megamenu90 li.active a.dj-up_a { color: #ffffff; } #dj-megamenu90 li:hover a.dj-up_a small.subtitle, #dj-megamenu90 li.hover a.dj-up_a small.subtitle, #dj-megamenu90 li.active a.dj-up_a small.subtitle { color: #a4c4f5; } #dj-megamenu90 li:hover div.dj-subwrap, #dj-megamenu90 li.hover div.dj-subwrap { background: #303030; } #dj-megamenu90 li:hover div.dj-subwrap li:hover > div.dj-subwrap, #dj-megamenu90 li.hover div.dj-subwrap li.hover > div.dj-subwrap { background: #303030; } #dj-megamenu90 li ul.dj-submenu > li { border-top-color: rgba( 57, 57, 57, 1); } #dj-megamenu90 .djsubrow_separator { border-bottom-color: rgba( 57, 57, 57, 1); } #dj-megamenu90 li ul.dj-submenu > li > a { color: #c3c3c3; } #dj-megamenu90 li ul.dj-subtree > li > a { color: #c3c3c3; } #dj-megamenu90 li ul.dj-submenu > li > a small.subtitle { color: #666666; } #dj-megamenu90 li ul.dj-subtree > li { color: #666666; } #dj-megamenu90 li ul.dj-subtree > li > a small.subtitle { color: #666666; } #dj-megamenu90 li ul.dj-submenu > li > a:hover, #dj-megamenu90 li ul.dj-submenu > li > a.active, #dj-megamenu90 li ul.dj-submenu > li.hover:not(.subtree) > a { background: #1681d1; } #dj-megamenu90 li ul.dj-submenu > li > a:hover, #dj-megamenu90 li ul.dj-submenu > li > a.active, #dj-megamenu90 li ul.dj-submenu > li.hover:not(.subtree) > a { color: #ffffff; } #dj-megamenu90 li ul.dj-subtree > li > a:hover { color: #ffffff; } #dj-megamenu90 li ul.dj-submenu > li > a:hover small.subtitle, #dj-megamenu90 li ul.dj-submenu > li > a.active small.subtitle, #dj-megamenu90 li ul.dj-submenu > li.hover:not(.subtree) > a small.subtitle { color: #a4c4f5; } #dj-megamenu90 li ul.dj-subtree > li > a:hover small.subtitle { color: #a4c4f5; } #dj-megamenu90 .modules-wrap { color: #d2d2d2; }
 
-        function init() {
+		@media (min-width: 1200px) {
+			#dj-megamenu90mobile { display: none; }
+		}
+		@media (max-width: 1199px) {
+			#dj-megamenu90, #dj-megamenu90sticky, #dj-megamenu90placeholder { display: none !important; }
+		}
+	
+	</style>
 
-          camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 0.01, 10 );
-          camera.position.z = 1;
-          
-          camera.rotation.y = 45/180*Math.PI;
-          camera.position.x = 3;
-          camera.position.y = 3;
-          camera.position.z = 5;
+<div id="google_translate_element"></div>
+	
+<script type="text/javascript">
+	function googleTranslateElementInit() {
+		new google.translate.TranslateElement(
+			{pageLanguage: 'en'},
+			'google_translate_element'
+		);
+	}
+</script>
+
+<script type="text/javascript" src=
+"https://translate.google.com/translate_a/element.js?
+	cb=googleTranslateElementInit">
+</script>
+
+	<script type="text/javascript" async="" src="./Home_files/analytics.js.download"></script><script type="text/javascript" async="" src="./Home_files/js"></script><script type="application/json" class="joomla-script-options loaded">{"csrf.token":"69b6c15dc4c802833e6f8d34c9fafa3e","system.paths":{"root":"","base":""},"rl_modals":{"class":"modal_link","defaults":{"opacity":"0.8","maxWidth":"95%","maxHeight":"95%","current":"{current} \/ {total}","previous":"previous","next":"next","close":"close","xhrError":"This content failed to load.","imgError":"This image failed to load."},"auto_correct_size":1,"auto_correct_size_delay":0}}</script>
+	<script src="./Home_files/jquery.min.js.download" type="text/javascript"></script>
+	<script src="./Home_files/jquery-noconflict.js.download" type="text/javascript"></script>
+	<script src="./Home_files/jquery-migrate.min.js.download" type="text/javascript"></script>
+	<script src="./Home_files/caption.js.download" type="text/javascript"></script>
+	<script src="./Home_files/core.js.download" type="text/javascript"></script>
+	<script src="./Home_files/jquery.touchSwipe.min.js.download" type="text/javascript"></script>
+	<script src="./Home_files/jquery.modals.min.js.download" type="text/javascript"></script>
+	<script src="./Home_files/script.min.js.download" type="text/javascript"></script>
+	<script src="./Home_files/browser-engines.js.download" type="text/javascript"></script>
+	<script src="./Home_files/rokmediaqueries.js.download" type="text/javascript"></script>
+	<script src="./Home_files/fixed-header.js.download" type="text/javascript"></script>
+	<script src="./Home_files/mootools-core.js.download" type="text/javascript"></script>
+	<script src="./Home_files/mootools-more.js.download" type="text/javascript"></script>
+	<script src="./Home_files/showcaseFX.js.download" type="text/javascript"></script>
+	<script src="./Home_files/jquery.themepunch.tools.min.js.download" type="text/javascript"></script>
+	<script src="./Home_files/jquery.themepunch.revolution.min.js.download" type="text/javascript"></script>
+	<script src="./Home_files/jquery.djmegamenu.min.js.download" defer="defer" type="text/javascript"></script>
+	<script src="./Home_files/jquery.djmobilemenu.min.js.download" defer="defer" type="text/javascript"></script>
+	<script type="text/javascript">
+jQuery(window).on('load',  function() {
+				new JCaption('img.caption');
+			});
+
+window.addEvent('load', function(){ // 99
+	var jxtcwall99slidebox = new slidebox('jxtcwall99','RSO',{xi:0,xo:0,yi:0,yo:0},{fxtype:new Fx.Transition(Fx.Transitions.Quad.easeIn),dura:800,frames:50});
+	var jxtcwall99jxtcpops = new jxtcpops('jxtcwall99',{opacityin:1,opacityout:0,verticalin:0,verticalout:0,horizontalin:0,horizontalout:0,durationin:550,durationout:550,pause:1000,fxtype:new Fx.Transition(Fx.Transitions.Quad.easeIn),centered:'1'});
+	var jxtcwall99jxtctips = new jxtctips('jxtcwall99',{opacityin:1,opacityout:0,verticalin:0,verticalout:0,horizontalin:0,horizontalout:0,durationin:550,durationout:550,pause:1000,fxtype:new Fx.Transition(Fx.Transitions.Quad.easeIn),centered:'1'});
+	var jxtcwall99jxtchover = new jxtchover('jxtcwall99','CECECE','FFFFFF');
+	});
+window.addEvent('load', function(){var jxtcwall99 = new showcaseFX('jxtcwall99',{fxmode:'fade',fxflow:'0',fxpause:8000,fxspeed:1500,fxlayer:'0',fxtype:new Fx.Transition(Fx.Transitions.linear)});});
+window.addEvent('load', function(){ // 96
+	var jxtcwall96slidebox = new slidebox('jxtcwall96','RSO',{xi:0,xo:0,yi:0,yo:0},{fxtype:new Fx.Transition(Fx.Transitions.Quad.easeIn),dura:800,frames:50});
+	var jxtcwall96jxtcpops = new jxtcpops('jxtcwall96',{opacityin:1,opacityout:0,verticalin:0,verticalout:0,horizontalin:0,horizontalout:0,durationin:550,durationout:550,pause:1000,fxtype:new Fx.Transition(Fx.Transitions.Quad.easeIn),centered:'1'});
+	var jxtcwall96jxtctips = new jxtctips('jxtcwall96',{opacityin:1,opacityout:0,verticalin:0,verticalout:0,horizontalin:0,horizontalout:0,durationin:550,durationout:550,pause:1000,fxtype:new Fx.Transition(Fx.Transitions.Quad.easeIn),centered:'1'});
+	var jxtcwall96jxtchover = new jxtchover('jxtcwall96','CECECE','FFFFFF');
+	});
+window.addEvent('load', function(){var jxtcwall96 = new showcaseFX('jxtcwall96',{fxmode:'fade',fxflow:'0',fxpause:4000,fxspeed:1500,fxlayer:'0',fxtype:new Fx.Transition(Fx.Transitions.linear)});});
+window.addEvent('load', function(){ // 97
+	var jxtcwall97slidebox = new slidebox('jxtcwall97','RSO',{xi:0,xo:0,yi:0,yo:0},{fxtype:new Fx.Transition(Fx.Transitions.Quad.easeIn),dura:800,frames:50});
+	var jxtcwall97jxtcpops = new jxtcpops('jxtcwall97',{opacityin:1,opacityout:0,verticalin:0,verticalout:0,horizontalin:0,horizontalout:0,durationin:550,durationout:550,pause:1000,fxtype:new Fx.Transition(Fx.Transitions.Quad.easeIn),centered:'1'});
+	var jxtcwall97jxtctips = new jxtctips('jxtcwall97',{opacityin:1,opacityout:0,verticalin:0,verticalout:0,horizontalin:0,horizontalout:0,durationin:550,durationout:550,pause:1000,fxtype:new Fx.Transition(Fx.Transitions.Quad.easeIn),centered:'1'});
+	var jxtcwall97jxtchover = new jxtchover('jxtcwall97','CECECE','FFFFFF');
+	});
+window.addEvent('load', function(){var jxtcwall97 = new showcaseFX('jxtcwall97',{fxmode:'fade',fxflow:'0',fxpause:4000,fxspeed:1500,fxlayer:'0',fxtype:new Fx.Transition(Fx.Transitions.linear)});});
+window.addEvent('load', function(){ // 98
+	var jxtcwall98slidebox = new slidebox('jxtcwall98','RSO',{xi:0,xo:0,yi:0,yo:0},{fxtype:new Fx.Transition(Fx.Transitions.Quad.easeIn),dura:800,frames:50});
+	var jxtcwall98jxtcpops = new jxtcpops('jxtcwall98',{opacityin:1,opacityout:0,verticalin:0,verticalout:0,horizontalin:0,horizontalout:0,durationin:550,durationout:550,pause:1000,fxtype:new Fx.Transition(Fx.Transitions.Quad.easeIn),centered:'1'});
+	var jxtcwall98jxtctips = new jxtctips('jxtcwall98',{opacityin:1,opacityout:0,verticalin:0,verticalout:0,horizontalin:0,horizontalout:0,durationin:550,durationout:550,pause:1000,fxtype:new Fx.Transition(Fx.Transitions.Quad.easeIn),centered:'1'});
+	var jxtcwall98jxtchover = new jxtchover('jxtcwall98','CECECE','FFFFFF');
+	});
+window.addEvent('load', function(){var jxtcwall98 = new showcaseFX('jxtcwall98',{fxmode:'fade',fxflow:'0',fxpause:4000,fxspeed:1500,fxlayer:'0',fxtype:new Fx.Transition(Fx.Transitions.linear)});});
+window.addEvent('load', function(){ // 95
+	var jxtcwall95slidebox = new slidebox('jxtcwall95','RSO',{xi:0,xo:0,yi:0,yo:0},{fxtype:new Fx.Transition(Fx.Transitions.Quad.easeIn),dura:800,frames:50});
+	var jxtcwall95jxtcpops = new jxtcpops('jxtcwall95',{opacityin:1,opacityout:0,verticalin:0,verticalout:0,horizontalin:0,horizontalout:0,durationin:550,durationout:550,pause:1000,fxtype:new Fx.Transition(Fx.Transitions.Quad.easeIn),centered:'1'});
+	var jxtcwall95jxtctips = new jxtctips('jxtcwall95',{opacityin:1,opacityout:0,verticalin:0,verticalout:0,horizontalin:0,horizontalout:0,durationin:550,durationout:550,pause:1000,fxtype:new Fx.Transition(Fx.Transitions.Quad.easeIn),centered:'1'});
+	var jxtcwall95jxtchover = new jxtchover('jxtcwall95','CECECE','FFFFFF');
+	});
+window.addEvent('load', function(){var jxtcwall95 = new showcaseFX('jxtcwall95',{fxmode:'slideHor',fxflow:'LR',fxpause:4000,fxspeed:1500,fxlayer:'0',fxtype:new Fx.Transition(Fx.Transitions.linear)});});
+
+	(function(){
+		var cb = function() {
+			var add = function(css, id) {
+				if(document.getElementById(id)) return;
+				var l = document.createElement('link'); l.rel = 'stylesheet'; l.id = id; l.href = css;
+				var h = document.getElementsByTagName('head')[0]; h.appendChild(l);
+			};add('/media/djextensions/css/animate.min.css', 'animate_min_css');add('/media/djextensions/css/animate.ext.css', 'animate_ext_css');
+		}
+		var raf = requestAnimationFrame || mozRequestAnimationFrame || webkitRequestAnimationFrame || msRequestAnimationFrame;
+		if (raf) raf(cb);
+		else window.addEventListener('load', cb);
+	})();
+	</script>
+	
+<script>
+  function resizeIframe(obj) {
+    obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 'px';
+  }
+</script>	
+	
+<link rel="stylesheet" id="animate_min_css" href="./Home_files/animate.min.css"><link rel="stylesheet" id="animate_ext_css" href="./Home_files/animate.ext.css"><style>.de8fb{
+    background-color:transparent !important;
+    border:none !important;
+    position:fixed !important;
+    bottom:0px !important;
+    right:0px !important;
+    box-sizing:border-box !important;
+    border-radius:5px !important;
+    min-width:auto;
+}
+
+.ac200{
+    bottom:0px !important;
+    left:0px !important;
+}
+
+._67d20{
+    bottom:0px !important;
+    right:0px !important;
+}
+
+._293a4{
+    width:90px !important;
+    height:90px !important;
+}
+
+._55893{
+    width:90px !important;
+    height:0px !important;
+}
+
+._042b3._41ee8{
+    width:400px !important;
+    height:600px !important;
+}
+
+._042b3._1f059{
+    width:100% !important;
+    height:100% !important;
+}
+
+@media (max-width: 600px){
+    ._042b3._41ee8{
+        width:100% !important;
+        height:99% !important;
+    }
+}
+
+.ee362{
+    width:270px !important;
+    height:180px !important;
+}
+
+._23bbc{
+    width:370px !important;
+    height:290px !important;
+}
+
+@media (max-width: 400px){
+    .ee362{
+        width:100% !important;
+    }
+    ._23bbc{
+        width:100% !important;
+    }
+}#_68625{
+    position:fixed;
+    z-index:2147483647 !important;
+}</style><style data-styled="active" data-styled-version="5.3.0"></style></head>
+<body class="logo-type-custom mainstyle-preset1 font-family-lato font-size-is-default menu-type-dropdownmenu layout-mode-responsive col12 option-com-content menu-home  dj-offcanvas-effect-3"><div class="dj-offcanvas-wrapper"><div class="dj-offcanvas-pusher"><div class="dj-offcanvas-pusher-in">
+        <header id="rt-top-surround" class="header-fixed">
+						<div id="rt-header">
+			<div class="rt-container">
+				<div class="rt-grid-3 rt-alpha">
+            <div class="rt-block logo-block">
+            <a href="https://puberty2menopause.com/" id="rt-logo"></a>
+        </div>
         
-          scene = new THREE.Scene();
+           <div class="rt-block responsive-memu">
+           	<div class="module-surround">
+	           		                	<div class="module-content">
+	                		
+<div id="dj-megamenu90mobileWrap" class="responsive-memu"><div></div></div>
+	                	</div>
+                	</div>
+           </div>
+	
+</div>
+<div class="rt-grid-9 rt-omega">
+               <div class="rt-block sitemainmenu">
+           	<div class="module-surround">
+	           		                	<div class="module-content">
+	                		
+<div class="dj-megamenu-wrapper">
+		<ul id="dj-megamenu90" class="dj-megamenu  dj-fa-1 dj-megamenu-default dj-megamenu-custom horizontalMenu sitemainmenu normal" data-trigger="1199">
+		<li class="dj-up itemid102 first parent"><a class="dj-up_a  " aria-haspopup="true" aria-expanded="false" href="https://puberty2menopause.com/#"><span class="dj-drop">Women Health Resources<span class="arrow" aria-hidden="true"></span></span></a><div class="dj-subwrap  single_column subcols1" style=""><div class="dj-subwrap-in" style="width:200px;"><div class="dj-subcol" style="width:200px"><ul class="dj-submenu"><li class="itemid108 first parent"><a class="dj-more " aria-haspopup="true" aria-expanded="false" href="https://puberty2menopause.com/index.php/women-health-resources/i-am-below-18-years-old">I am below 18 years old<span class="arrow" aria-hidden="true"></span></a><div class="dj-subwrap  single_column subcols1" style=""><div class="dj-subwrap-in" style="width:200px;"><div class="dj-subcol" style="width:200px"><ul class="dj-submenu"><li class="itemid111 first parent"><a class="dj-more " aria-haspopup="true" aria-expanded="false" href="https://puberty2menopause.com/index.php/women-health-resources/i-am-below-18-years-old/puberty/physical-and-hormonal-changes-during-puberty">Puberty<span class="arrow" aria-hidden="true"></span></a><div class="dj-subwrap  single_column subcols1" style=""><div class="dj-subwrap-in" style="width:200px;"><div class="dj-subcol" style="width:200px"><ul class="dj-submenu"><li class="itemid132 first"><a href="https://puberty2menopause.com/index.php/women-health-resources/i-am-below-18-years-old/puberty/physical-and-hormonal-changes-during-puberty">Physical and hormonal changes during puberty</a></li><li class="itemid133"><a href="https://puberty2menopause.com/index.php/women-health-resources/i-am-below-18-years-old/puberty/how-does-it-feel-to-get-periods-for-the-first-time">How does it feel to get periods for the first time?</a></li><li class="itemid134"><a href="https://puberty2menopause.com/index.php/women-health-resources/i-am-below-18-years-old/puberty/eating-well-important-for-pubertal-girls">Eating well: Important for pubertal girls</a></li><li class="itemid135"><a href="https://puberty2menopause.com/index.php/women-health-resources/i-am-below-18-years-old/puberty/adapting-to-your-growing-body">Adapting to your growing body</a></li><li class="itemid136"><a href="https://puberty2menopause.com/index.php/women-health-resources/i-am-below-18-years-old/puberty/vagina-itch-what-could-be-the-reasons-in-young-girls">Vagina itch- What could be the reasons in young girls?</a></li><li class="itemid137"><a href="https://puberty2menopause.com/index.php/women-health-resources/i-am-below-18-years-old/puberty/vaginal-itch-preventing-its-recurrence">Vaginal itch- Preventing its recurrence</a></li><li class="itemid138"><a href="https://puberty2menopause.com/index.php/women-health-resources/i-am-below-18-years-old/puberty/urinary-tract-infection-in-women">Urinary tract infection in women</a></li></ul></div><div style="clear:both;height:0"></div></div></div></li><li class="itemid112 parent"><a class="dj-more " aria-haspopup="true" aria-expanded="false" href="https://puberty2menopause.com/index.php/women-health-resources/i-am-below-18-years-old/menstrual-health/choosing-the-best-sanitary-pads-for-your-unique-menstrual-needs">Menstrual health<span class="arrow" aria-hidden="true"></span></a><div class="dj-subwrap  single_column subcols1" style=""><div class="dj-subwrap-in" style="width:200px;"><div class="dj-subcol" style="width:200px"><ul class="dj-submenu"><li class="itemid139 first"><a href="https://puberty2menopause.com/index.php/women-health-resources/i-am-below-18-years-old/menstrual-health/choosing-the-best-sanitary-pads-for-your-unique-menstrual-needs">Choosing the best sanitary pads for your unique menstrual needs</a></li><li class="itemid172"><a href="https://puberty2menopause.com/index.php/women-health-resources/i-am-below-18-years-old/menstrual-health/maintaining-hygiene-during-menses">Maintaining hygiene during menses</a></li><li class="itemid140"><a href="https://puberty2menopause.com/index.php/women-health-resources/i-am-below-18-years-old/menstrual-health/myths-and-facts-related-to-periods">Myths and facts related to periods</a></li><li class="itemid141"><a href="https://puberty2menopause.com/index.php/women-health-resources/i-am-below-18-years-old/menstrual-health/fun-facts-about-menstruation">Fun facts about menstruation</a></li><li class="itemid142"><a href="https://puberty2menopause.com/index.php/women-health-resources/i-am-below-18-years-old/menstrual-health/no-menstrual-periods-what-to-do">No menstrual periods- What to do?</a></li><li class="itemid143"><a href="https://puberty2menopause.com/index.php/women-health-resources/i-am-below-18-years-old/menstrual-health/premenstrual-syndrome-do-i-have-it">Premenstrual syndrome- do I have it?</a></li><li class="itemid144"><a href="https://puberty2menopause.com/index.php/women-health-resources/i-am-below-18-years-old/menstrual-health/coping-with-pms">Coping with PMS</a></li></ul></div><div style="clear:both;height:0"></div></div></div></li><li class="itemid113 parent"><a class="dj-more " aria-haspopup="true" aria-expanded="false" href="https://puberty2menopause.com/index.php/women-health-resources/i-am-below-18-years-old/nutrition/eating-well-important-for-pubertal-girls">Nutrition<span class="arrow" aria-hidden="true"></span></a><div class="dj-subwrap  single_column subcols1" style=""><div class="dj-subwrap-in" style="width:200px;"><div class="dj-subcol" style="width:200px"><ul class="dj-submenu"><li class="itemid145 first"><a href="https://puberty2menopause.com/index.php/women-health-resources/i-am-below-18-years-old/nutrition/eating-well-important-for-pubertal-girls">Eating well: Important for pubertal girls</a></li></ul></div><div style="clear:both;height:0"></div></div></div></li><li class="itemid114 parent"><a class="dj-more " aria-haspopup="true" aria-expanded="false" href="https://puberty2menopause.com/index.php/women-health-resources/i-am-below-18-years-old/emotional-health/adapting-to-your-growing-body">Emotional health<span class="arrow" aria-hidden="true"></span></a><div class="dj-subwrap  single_column subcols1" style=""><div class="dj-subwrap-in" style="width:200px;"><div class="dj-subcol" style="width:200px"><ul class="dj-submenu"><li class="itemid146 first"><a href="https://puberty2menopause.com/index.php/women-health-resources/i-am-below-18-years-old/emotional-health/adapting-to-your-growing-body">Adapting to your growing body</a></li></ul></div><div style="clear:both;height:0"></div></div></div></li></ul></div><div style="clear:both;height:0"></div></div></div></li><li class="itemid109 parent"><a class="dj-more " aria-haspopup="true" aria-expanded="false" href="https://puberty2menopause.com/index.php/women-health-resources/i-am-19-45-yr-old">I am 19-45 yr old<span class="arrow" aria-hidden="true"></span></a><div class="dj-subwrap  single_column subcols1" style=""><div class="dj-subwrap-in" style="width:200px;"><div class="dj-subcol" style="width:200px"><ul class="dj-submenu"><li class="itemid115 first parent"><a class="dj-more " aria-haspopup="true" aria-expanded="false" href="https://puberty2menopause.com/index.php/women-health-resources/i-am-19-45-yr-old/pregnancy-and-labor/early-signs-of-pregnancy">Pregnancy and Labor<span class="arrow" aria-hidden="true"></span></a><div class="dj-subwrap  single_column subcols1" style=""><div class="dj-subwrap-in" style="width:200px;"><div class="dj-subcol" style="width:200px"><ul class="dj-submenu"><li class="itemid147 first"><a href="https://puberty2menopause.com/index.php/women-health-resources/i-am-19-45-yr-old/pregnancy-and-labor/early-signs-of-pregnancy">Early signs of pregnancy</a></li><li class="itemid148"><a href="https://puberty2menopause.com/index.php/women-health-resources/i-am-19-45-yr-old/pregnancy-and-labor/eating-well-doesn-t-mean-eating-for-two-during-pregnancy">Eating well doesn’t mean eating for two during pregnancy</a></li><li class="itemid149"><a href="https://puberty2menopause.com/index.php/women-health-resources/i-am-19-45-yr-old/pregnancy-and-labor/post-partum-blues-what-to-do-about-it">Post-partum blues- what to do about it?</a></li></ul></div><div style="clear:both;height:0"></div></div></div></li><li class="itemid116 parent"><a class="dj-more " aria-haspopup="true" aria-expanded="false" href="https://puberty2menopause.com/index.php/women-health-resources/i-am-19-45-yr-old/breastfeeding/breastfeeding-all-you-wanted-to-know">Breastfeeding<span class="arrow" aria-hidden="true"></span></a><div class="dj-subwrap  single_column subcols1" style=""><div class="dj-subwrap-in" style="width:200px;"><div class="dj-subcol" style="width:200px"><ul class="dj-submenu"><li class="itemid150 first"><a href="https://puberty2menopause.com/index.php/women-health-resources/i-am-19-45-yr-old/breastfeeding/breastfeeding-all-you-wanted-to-know">Breastfeeding: All you wanted to know</a></li></ul></div><div style="clear:both;height:0"></div></div></div></li><li class="itemid117 parent"><a class="dj-more " aria-haspopup="true" aria-expanded="false" href="https://puberty2menopause.com/index.php/women-health-resources/i-am-19-45-yr-old/contraception-and-family-planning/contraceptive-choices-for-women">Contraception and Family Planning<span class="arrow" aria-hidden="true"></span></a><div class="dj-subwrap  single_column subcols1" style=""><div class="dj-subwrap-in" style="width:200px;"><div class="dj-subcol" style="width:200px"><ul class="dj-submenu"><li class="itemid151 first"><a href="https://puberty2menopause.com/index.php/women-health-resources/i-am-19-45-yr-old/contraception-and-family-planning/contraceptive-choices-for-women">Contraceptive choices for women</a></li></ul></div><div style="clear:both;height:0"></div></div></div></li><li class="itemid118 parent"><a class="dj-more " aria-haspopup="true" aria-expanded="false" href="https://puberty2menopause.com/index.php/women-health-resources/i-am-19-45-yr-old/parenting/parenting-your-toddler-a-herculean-task">Parenting<span class="arrow" aria-hidden="true"></span></a><div class="dj-subwrap  single_column subcols1" style=""><div class="dj-subwrap-in" style="width:200px;"><div class="dj-subcol" style="width:200px"><ul class="dj-submenu"><li class="itemid152 first"><a href="https://puberty2menopause.com/index.php/women-health-resources/i-am-19-45-yr-old/parenting/parenting-your-toddler-a-herculean-task">Parenting your toddler- A Herculean task?</a></li></ul></div><div style="clear:both;height:0"></div></div></div></li><li class="itemid119 parent"><a class="dj-more " aria-haspopup="true" aria-expanded="false" href="https://puberty2menopause.com/index.php/women-health-resources/i-am-19-45-yr-old/infertility/infertility-in-women-causes-and-potential-solutions">Infertility<span class="arrow" aria-hidden="true"></span></a><div class="dj-subwrap  single_column subcols1" style=""><div class="dj-subwrap-in" style="width:200px;"><div class="dj-subcol" style="width:200px"><ul class="dj-submenu"><li class="itemid153 first"><a href="https://puberty2menopause.com/index.php/women-health-resources/i-am-19-45-yr-old/infertility/infertility-in-women-causes-and-potential-solutions">Infertility in women: Causes and potential solutions</a></li></ul></div><div style="clear:both;height:0"></div></div></div></li><li class="itemid120 parent"><a class="dj-more " aria-haspopup="true" aria-expanded="false" href="https://puberty2menopause.com/index.php/women-health-resources/i-am-19-45-yr-old/health-and-wellness/reproductive-health-practices-every-woman-should-follow">Health and wellness<span class="arrow" aria-hidden="true"></span></a><div class="dj-subwrap  single_column subcols1" style=""><div class="dj-subwrap-in" style="width:200px;"><div class="dj-subcol" style="width:200px"><ul class="dj-submenu"><li class="itemid154 first"><a href="https://puberty2menopause.com/index.php/women-health-resources/i-am-19-45-yr-old/health-and-wellness/reproductive-health-practices-every-woman-should-follow">Reproductive health practices every woman should follow</a></li><li class="itemid155"><a href="https://puberty2menopause.com/index.php/women-health-resources/i-am-19-45-yr-old/health-and-wellness/urinary-tract-infection-in-women">Urinary tract infection in women</a></li><li class="itemid156"><a href="https://puberty2menopause.com/index.php/women-health-resources/i-am-19-45-yr-old/health-and-wellness/vaginal-itch-preventing-its-recurrence">Vaginal itch- Preventing its recurrence</a></li><li class="itemid157"><a href="https://puberty2menopause.com/index.php/women-health-resources/i-am-19-45-yr-old/health-and-wellness/breast-cancer">Breast cancer</a></li><li class="itemid158"><a href="https://puberty2menopause.com/index.php/women-health-resources/i-am-19-45-yr-old/health-and-wellness/cancer-of-the-reproductive-organs">Cancer of the reproductive organs</a></li><li class="itemid159"><a href="https://puberty2menopause.com/index.php/women-health-resources/i-am-19-45-yr-old/health-and-wellness/coping-with-pms">Coping with PMS</a></li></ul></div><div style="clear:both;height:0"></div></div></div></li></ul></div><div style="clear:both;height:0"></div></div></div></li><li class="itemid110 parent"><a class="dj-more " aria-haspopup="true" aria-expanded="false" href="https://puberty2menopause.com/index.php/women-health-resources/i-am-over-45-years">I am over 45 years<span class="arrow" aria-hidden="true"></span></a><div class="dj-subwrap  single_column subcols1" style=""><div class="dj-subwrap-in" style="width:200px;"><div class="dj-subcol" style="width:200px"><ul class="dj-submenu"><li class="itemid121 first parent"><a class="dj-more " aria-haspopup="true" aria-expanded="false" href="https://puberty2menopause.com/index.php/women-health-resources/i-am-over-45-years/menopause/the-early-signs-and-symptoms-of-menopause">Menopause<span class="arrow" aria-hidden="true"></span></a><div class="dj-subwrap  single_column subcols1" style=""><div class="dj-subwrap-in" style="width:200px;"><div class="dj-subcol" style="width:200px"><ul class="dj-submenu"><li class="itemid160 first"><a href="https://puberty2menopause.com/index.php/women-health-resources/i-am-over-45-years/menopause/the-early-signs-and-symptoms-of-menopause">The early signs and symptoms of menopause</a></li><li class="itemid161"><a href="https://puberty2menopause.com/index.php/women-health-resources/i-am-over-45-years/menopause/eating-well-during-menopause">Eating well during menopause</a></li><li class="itemid162"><a href="https://puberty2menopause.com/index.php/women-health-resources/i-am-over-45-years/menopause/menopause-is-it-the-end-of-your-sex-life">Menopause: Is it the end of your sex life?</a></li><li class="itemid163"><a href="https://puberty2menopause.com/index.php/women-health-resources/i-am-over-45-years/menopause/hot-flashes-how-does-it-feel-like-and-ways-to-manage-it">Hot flashes: How does it feel like and ways to manage it</a></li><li class="itemid164"><a href="https://puberty2menopause.com/index.php/women-health-resources/i-am-over-45-years/menopause/urinary-tract-infection-in-women">Urinary tract infection in women</a></li><li class="itemid165"><a href="https://puberty2menopause.com/index.php/women-health-resources/i-am-over-45-years/menopause/vaginal-itch-preventing-its-recurrence">Vaginal itch- Preventing its recurrence</a></li><li class="itemid166"><a href="https://puberty2menopause.com/index.php/women-health-resources/i-am-over-45-years/menopause/vaginal-health-during-menopause">Vaginal health during menopause</a></li><li class="itemid167"><a href="https://puberty2menopause.com/index.php/women-health-resources/i-am-over-45-years/menopause/breast-cancer">Breast cancer</a></li><li class="itemid168"><a href="https://puberty2menopause.com/index.php/women-health-resources/i-am-over-45-years/menopause/cancer-of-the-reproductive-organs">Cancer of the reproductive organs</a></li></ul></div><div style="clear:both;height:0"></div></div></div></li><li class="itemid122 parent"><a class="dj-more " aria-haspopup="true" aria-expanded="false" href="https://puberty2menopause.com/index.php/women-health-resources/i-am-over-45-years/physical-activity-and-exercise/exercising-when-you-are-getting-old">Physical activity and exercise<span class="arrow" aria-hidden="true"></span></a><div class="dj-subwrap  single_column subcols1" style=""><div class="dj-subwrap-in" style="width:200px;"><div class="dj-subcol" style="width:200px"><ul class="dj-submenu"><li class="itemid169 first"><a href="https://puberty2menopause.com/index.php/women-health-resources/i-am-over-45-years/physical-activity-and-exercise/exercising-when-you-are-getting-old">Exercising when you are getting old</a></li></ul></div><div style="clear:both;height:0"></div></div></div></li><li class="itemid123 parent"><a class="dj-more " aria-haspopup="true" aria-expanded="false" href="https://puberty2menopause.com/index.php/women-health-resources/i-am-over-45-years/bone-health/how-to-keep-you-bones-strong-after-menopause">Bone health<span class="arrow" aria-hidden="true"></span></a><div class="dj-subwrap  single_column subcols1" style=""><div class="dj-subwrap-in" style="width:200px;"><div class="dj-subcol" style="width:200px"><ul class="dj-submenu"><li class="itemid170 first"><a href="https://puberty2menopause.com/index.php/women-health-resources/i-am-over-45-years/bone-health/how-to-keep-you-bones-strong-after-menopause">How to keep you bones strong after menopause</a></li></ul></div><div style="clear:both;height:0"></div></div></div></li><li class="itemid124 parent"><a class="dj-more " aria-haspopup="true" aria-expanded="false" href="https://puberty2menopause.com/index.php/women-health-resources/i-am-over-45-years/overall-wellbeing/maintaining-social-life-during-old-age">Overall-Wellbeing<span class="arrow" aria-hidden="true"></span></a><div class="dj-subwrap  single_column subcols1" style=""><div class="dj-subwrap-in" style="width:200px;"><div class="dj-subcol" style="width:200px"><ul class="dj-submenu"><li class="itemid171 first"><a href="https://puberty2menopause.com/index.php/women-health-resources/i-am-over-45-years/overall-wellbeing/maintaining-social-life-during-old-age"> Maintaining Social life during old age</a></li></ul></div><div style="clear:both;height:0"></div></div></div></li></ul></div><div style="clear:both;height:0"></div></div></div></li><li class="itemid208 parent"><a class="dj-more " aria-haspopup="true" aria-expanded="false" href="https://puberty2menopause.com/index.php/women-health-resources/covid-19-and-women-health/covid-19-and-its-impact-on-women-s-mental-health">Covid-19 and Women Health<span class="arrow" aria-hidden="true"></span></a><div class="dj-subwrap  single_column subcols1" style=""><div class="dj-subwrap-in" style="width:200px;"><div class="dj-subcol" style="width:200px"><ul class="dj-submenu"><li class="itemid209 first"><a href="https://puberty2menopause.com/index.php/women-health-resources/covid-19-and-women-health/covid-19-and-its-impact-on-women-s-mental-health">Covid-19 and its impact on women’s mental health</a></li><li class="itemid210"><a href="https://puberty2menopause.com/index.php/women-health-resources/covid-19-and-women-health/self-care-measures-for-women-during-the-covid-19-pandemic">Self-care measures for women during the covid-19 pandemic</a></li><li class="itemid211"><a href="https://puberty2menopause.com/index.php/women-health-resources/covid-19-and-women-health/covid-19-vaccination-while-menstruating-know-the-facts">COVID-19 vaccination while menstruating: Know the facts</a></li><li class="itemid212"><a href="https://puberty2menopause.com/index.php/women-health-resources/covid-19-and-women-health/pregnant-and-covid-positive-managing-it-well">Pregnant and COVID positive- Managing it well!</a></li><li class="itemid213"><a href="https://puberty2menopause.com/index.php/women-health-resources/covid-19-and-women-health/covid-vaccines-for-pregnant-and-lactating-women-are-they-eligible">COVID vaccines for Pregnant and Lactating Women- Are they eligible?</a></li></ul></div><div style="clear:both;height:0"></div></div></div></li></ul></div><div style="clear:both;height:0"></div></div></div></li><li class="dj-up itemid103"><a class="dj-up_a  " href="https://puberty2menopause.com/index.php/ask-an-expert"><span>Ask an expert</span></a></li><li class="dj-up itemid191"><a class="dj-up_a  " href="https://puberty2menopause.com/index.php/find-a-clinic"><span>Find a clinic</span></a></li><li class="dj-up itemid105"><a class="dj-up_a  " href="https://puberty2menopause.com/index.php/video"><span>Video</span></a></li><li class="dj-up itemid107"><a class="dj-up_a  " href="https://puberty2menopause.com/index.php/tool" aria-expanded="false"><span>Tools</span></a></li><li class="dj-up itemid198"><a class="dj-up_a  " href="https://puberty2menopause.com/index.php/doctor-registration"><span>Doctor Registration</span></a></li><li class="dj-up itemid203 hover"><a class="dj-up_a  " href="https://puberty2menopause.com/index.php/quiz"><span>Quiz</span></a></li><li class="dj-up itemid206"><a class="dj-up_a  " href="https://puberty2menopause.com/index.php/about-us"><span>About Us</span></a></li></ul>
+			
+	</div>	                	</div>
+                	</div>
+           </div>
+	
+</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+			</header>
+		    <div id="rt-drawer">
+        <div class="rt-container">
+                        <div class="clear"></div>
+        </div>
+    </div>
+    
+	    <div id="ts-fullscreen">
+            <div class="rt-grid-12 rt-alpha rt-omega">
+               <div class="rt-block ">
+           	<div class="module-surround">
+	           		                	<div class="module-content">
+	                		<!-- START REVOLUTION SLIDER 4.6.5 b1 fullwidth mode -->
 
-          geometry = new THREE.BoxGeometry( 0.2, 0.2, 0.2 );
-          material = new THREE.MeshNormalMaterial();
+<div id="rev_slider_1_1_wrapper" class="rev_slider_wrapper fullwidthbanner-container" style="margin: 0px auto; background-color: rgb(233, 233, 233); padding: 0px; max-height: 650px; height: 650px; overflow: visible;">
+	<div id="rev_slider_1_1" class="rev_slider fullwidthabanner revslider-initialised tp-simpleresponsive" style="max-height: 650px; height: 650px;">
+<ul class="tp-revslider-mainul" style="display: block; overflow: hidden; width: 100%; height: 100%; max-height: 650px;">	<!-- SLIDE  1-->
+	<li data-transition="fade" data-slotamount="7" data-masterspeed="300" data-saveperformance="off" class="tp-revslider-slidesli active-revslide current-sr-slide-visible" style="width: 100%; height: 100%; overflow: hidden; z-index: 20; visibility: inherit; opacity: 1;">
+		<!-- MAIN IMAGE -->
+		<div class="slotholder" style="width:100%;height:100%;" data-duration="undefined" data-zoomstart="undefined" data-zoomend="undefined" data-rotationstart="undefined" data-rotationend="undefined" data-ease="undefined" data-bgpositionend="undefined" data-bgposition="center top" data-kenburns="undefined" data-easeme="undefined" data-bgfit="cover" data-bgfitend="undefined" data-owidth="undefined" data-oheight="undefined"><div class="tp-bgimg defaultimg" data-lazyload="https://puberty2menopause.com/images/logo.png" data-bgfit="cover" data-bgposition="center top" data-bgrepeat="no-repeat" data-lazydone="undefined" src="https://puberty2menopause.com/images/logo.png" data-src="https://puberty2menopause.com/media/com_uniterevolution2/assets/images/dummy.png" style="background-color: rgba(0, 0, 0, 0); background-repeat: no-repeat; background-image: url(&quot;https://puberty2menopause.com/images/logo.png&quot;); background-size: cover; background-position: center top; width: 100%; height: 100%; opacity: 1; visibility: inherit;"></div></div>
+		<!-- LAYERS -->
 
-          mesh = new THREE.Mesh( geometry, material );
-          //scene.add( mesh );
-          
-          directionalLight = new THREE.DirectionalLight(0xffffff,100);
-          directionalLight.position.set(0,1,0);
-          directionalLight.castShadow = true;
-          scene.add(directionalLight);
-          light = new THREE.PointLight(0xc4c4c4,10);
-          light.position.set(0,300,500);
-          scene.add(light);
-          light2 = new THREE.PointLight(0xc4c4c4,10);
-          light2.position.set(500,100,0);
-          scene.add(light2);
-          light3 = new THREE.PointLight(0xc4c4c4,10);
-          light3.position.set(0,100,-500);
-          scene.add(light3);
-          light4 = new THREE.PointLight(0xc4c4c4,10);
-          light4.position.set(-500,300,500);
-          scene.add(light4);
+		<!-- LAYER NR. 1 -->
+		<div class="tp-caption banner-transpatent-overlay tp-fade tp-resizeme start" data-x="center" data-hoffset="0" data-y="center" data-voffset="0" data-speed="300" data-start="500" data-easing="Power3.easeInOut" data-splitin="none" data-splitout="none" data-elementdelay="0.1" data-endelementdelay="0.1" data-endspeed="300" style="z-index: 5; max-width: 100px; max-height: 100px; white-space: normal; transition: all 0s ease 0s; min-height: 0px; min-width: 0px; line-height: 36px; border-width: 0px; margin: 0px; padding: 4px 10px; letter-spacing: -1px; font-size: 36px; left: 889.5px; top: 271px; visibility: visible; opacity: 1; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -0.0025, 0, 0, 0, 1);">
+		</div>
 
-          let loader = new THREE.GLTFLoader();
-          loader.load('scene.gltf', function(gltf){
-            car = gltf.scene.children[0];
-            car.scale.set(0.5,0.5,0.5);
-            scene.add(gltf.scene);
-            animate();
-          });
+		<!-- LAYER NR. 2 -->
+		<div class="tp-caption tp-fade fullscreenvideo tp-videolayer start fullcoveredvideo" data-x="0" data-y="0" data-speed="300" data-start="500" data-easing="Power3.easeInOut" data-elementdelay="0.1" data-endelementdelay="0.1" data-videowidth="100%" data-videoheight="100%" data-videocontrols="none" data-videoposter="images/banners/banner.jpg" data-videoogv="images/banners/banner.ogv" data-videowebm="images/banners/banner.webm" data-videomp4="images/banners/banner.mp4" data-posteronmobile="off" data-videopreload="auto" data-videoloop="loop" data-forcecover="1" data-aspectratio="16:9" data-endspeed="300" data-autoplay="true" data-autoplayonlyfirsttime="false" style="z-index: 6; width: 1899px; height: 650px; left: 0px; top: 0px; visibility: visible; opacity: 1; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -0.0025, 0, 0, 0, 1);">
+		<div class="html5vid HasListener fullcoveredvideo videoisplaying" style="position: absolute; top: -209.094px; left: 0px; width: 1899px; height: 1068.19px; transform: matrix(1, 0, 0, 1, 0, 0);"><video style="display: block;" class="" loop="" preload="undefined" width="100%" height="100%" poster="images/banners/banner.jpg"><source src="images/banners/banner.mp4" type="video/mp4"><source src="images/banners/banner.ogv" type="video/ogg"></video><div class="tp-video-play-button"><i class="revicon-right-dir"></i><div class="tp-revstop"></div></div></div></div>
 
-          renderer = new THREE.WebGLRenderer( { antialias: true } );
-          renderer.setSize( window.innerWidth, window.innerHeight );
-          renderer.setAnimationLoop( animation );
-          document.body.appendChild( renderer.domElement );
+		<!-- LAYER NR. 3 -->
+		<div class="tp-caption banner-text tp-fade tp-resizeme start" data-x="center" data-hoffset="0" data-y="center" data-voffset="0" data-speed="300" data-start="500" data-easing="Power3.easeInOut" data-splitin="none" data-splitout="none" data-elementdelay="0.1" data-endelementdelay="0.1" data-endspeed="300" style="z-index: 7; white-space: normal; transition: all 0s ease 0s; min-height: 0px; min-width: 0px; line-height: 105px; border-width: 0px; margin: 0px; padding: 4px 10px; letter-spacing: -1px; font-size: 70px; left: -10px; top: -4px; visibility: visible; opacity: 1; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -0.0025, 0, 0, 0, 1);"><span style="transition: all 0s ease 0s; min-height: 0px; min-width: 0px; line-height: 105px; border-width: 0px; margin: 0px; padding: 0px; letter-spacing: -1px; font-size: 70px;">Everything about women’s health </span>
+		</div>
+	</li>
+	<!-- SLIDE  2-->
+	<li data-transition="fade" data-slotamount="7" data-masterspeed="300" data-saveperformance="off" class="tp-revslider-slidesli" style="width: 100%; height: 100%; overflow: hidden; visibility: hidden; opacity: 0; z-index: 18;">
+		<!-- MAIN IMAGE -->
+		<div class="slotholder" style="width:100%;height:100%;" data-duration="undefined" data-zoomstart="undefined" data-zoomend="undefined" data-rotationstart="undefined" data-rotationend="undefined" data-ease="undefined" data-bgpositionend="undefined" data-bgposition="center top" data-kenburns="undefined" data-easeme="undefined" data-bgfit="cover" data-bgfitend="undefined" data-owidth="undefined" data-oheight="undefined"><div class="tp-bgimg defaultimg" data-lazyload="https://puberty2menopause.com/images/logo.png" data-bgfit="cover" data-bgposition="center top" data-bgrepeat="no-repeat" data-lazydone="undefined" src="https://puberty2menopause.com/media/com_uniterevolution2/assets/images/dummy.png" data-src="https://puberty2menopause.com/media/com_uniterevolution2/assets/images/dummy.png" style="background-color:rgba(0, 0, 0, 0);background-repeat:no-repeat;background-image:url(https://puberty2menopause.com/media/com_uniterevolution2/assets/images/dummy.png);background-size:cover;background-position:center top;width:100%;height:100%;"></div></div>
+		<!-- LAYERS -->
 
-          controls = new THREE.OrbitControls(camera,renderer.domElement);
-          controls.addEventListener('change', renderer);
+		<!-- LAYER NR. 1 -->
+		<div class="tp-caption banner-transpatent-overlay tp-fade tp-resizeme start" data-x="center" data-hoffset="0" data-y="center" data-voffset="0" data-speed="300" data-start="500" data-easing="Power3.easeInOut" data-splitin="none" data-splitout="none" data-elementdelay="0.1" data-endelementdelay="0.1" data-endspeed="300" style="z-index: 5; max-width: 100%; max-height: 100%; white-space: normal;">
+		</div>
 
-        }
+		<!-- LAYER NR. 2 -->
+		<div class="tp-caption tp-fade fullscreenvideo tp-videolayer start" data-x="0" data-y="0" data-speed="300" data-start="500" data-easing="Power3.easeInOut" data-elementdelay="0.1" data-endelementdelay="0.1" data-videowidth="100%" data-videoheight="100%" data-videocontrols="none" data-videoposter="images/banners/banner.jpg" data-videoogv="images/banners/banner.ogv" data-videowebm="images/banners/banner.webm" data-videomp4="images/banners/banner.mp4" data-posteronmobile="off" data-videopreload="auto" data-videoloop="loop" data-forcecover="1" data-aspectratio="16:9" data-endspeed="300" data-autoplay="true" data-autoplayonlyfirsttime="false" style="z-index: 6;">
+		</div>
 
-        function animate() {
-        renderer.render(scene,camera);
-        requestAnimationFrame(animate);
-      }
-        function animation( time ) {
+		<!-- LAYER NR. 3 -->
+		<div class="tp-caption banner-text tp-fade tp-resizeme start" data-x="center" data-hoffset="0" data-y="center" data-voffset="0" data-speed="300" data-start="500" data-easing="Power3.easeInOut" data-splitin="none" data-splitout="none" data-elementdelay="0.1" data-endelementdelay="0.1" data-endspeed="300" style="z-index: 7; max-width: auto; max-height: auto; white-space: normal;"><span>Everything about women’s health </span>
+		</div>
+	</li>
+</ul>
+<div class="tp-static-layers">
+</div>
+<div class="tp-bannertimer tp-bottom" style="display: none; visibility: hidden; width: 0%;"></div>	<div class="tp-loader spinner1" style="display: none;"><div class="dot1"></div><div class="dot2"></div><div class="bounce1"></div><div class="bounce2"></div><div class="bounce3"></div></div></div>
+			
+			<script type="text/javascript">
 
-          mesh.rotation.x = time / 2000;
-          mesh.rotation.y = time / 1000;
+					
+				/******************************************
+					-	PREPARE PLACEHOLDER FOR SLIDER	-
+				******************************************/
+								
+				 
+						var setREVStartSize = function() {
+							var	tpopt = new Object(); 
+								tpopt.startwidth = 960;
+								tpopt.startheight = 650;
+								tpopt.container = jQuery('#rev_slider_1_1');
+								tpopt.fullScreen = "off";
+								tpopt.forceFullWidth="off";
 
-          renderer.render( scene, camera );
+							tpopt.container.closest(".rev_slider_wrapper").css({height:tpopt.container.height()});tpopt.width=parseInt(tpopt.container.width(),0);tpopt.height=parseInt(tpopt.container.height(),0);tpopt.bw=tpopt.width/tpopt.startwidth;tpopt.bh=tpopt.height/tpopt.startheight;if(tpopt.bh>tpopt.bw)tpopt.bh=tpopt.bw;if(tpopt.bh<tpopt.bw)tpopt.bw=tpopt.bh;if(tpopt.bw<tpopt.bh)tpopt.bh=tpopt.bw;if(tpopt.bh>1){tpopt.bw=1;tpopt.bh=1}if(tpopt.bw>1){tpopt.bw=1;tpopt.bh=1}tpopt.height=Math.round(tpopt.startheight*(tpopt.width/tpopt.startwidth));if(tpopt.height>tpopt.startheight&&tpopt.autoHeight!="on")tpopt.height=tpopt.startheight;if(tpopt.fullScreen=="on"){tpopt.height=tpopt.bw*tpopt.startheight;var cow=tpopt.container.parent().width();var coh=jQuery(window).height();if(tpopt.fullScreenOffsetContainer!=undefined){try{var offcontainers=tpopt.fullScreenOffsetContainer.split(",");jQuery.each(offcontainers,function(e,t){coh=coh-jQuery(t).outerHeight(true);if(coh<tpopt.minFullScreenHeight)coh=tpopt.minFullScreenHeight})}catch(e){}}tpopt.container.parent().height(coh);tpopt.container.height(coh);tpopt.container.closest(".rev_slider_wrapper").height(coh);tpopt.container.closest(".forcefullwidth_wrapper_tp_banner").find(".tp-fullwidth-forcer").height(coh);tpopt.container.css({height:"100%"});tpopt.height=coh;}else{tpopt.container.height(tpopt.height);tpopt.container.closest(".rev_slider_wrapper").height(tpopt.height);tpopt.container.closest(".forcefullwidth_wrapper_tp_banner").find(".tp-fullwidth-forcer").height(tpopt.height);}
+						};
+						
+						/* CALL PLACEHOLDER */
+						setREVStartSize();
+								
+				
+				var tpj=jQuery;				
+				tpj.noConflict();				
+				var revapi1;
+				
+				
+				
+				tpj(document).ready(function() {
+				
+					
+								
+				if(tpj('#rev_slider_1_1').revolution == undefined){
+					revslider_showDoubleJqueryError('#rev_slider_1_1');
+				}else{
+				   revapi1 = tpj('#rev_slider_1_1').show().revolution(
+					{
+											
+						dottedOverlay:"none",
+						delay:9000,
+						startwidth:960,
+						startheight:650,
+						hideThumbs:200,
+						
+						thumbWidth:100,
+						thumbHeight:50,
+						thumbAmount:1,
+													
+						simplifyAll:"off",						
+						navigationType:"none",
+						navigationArrows:"none",
+						navigationStyle:"round",						
+						touchenabled:"on",
+						onHoverStop:"on",						
+						nextSlideOnWindowFocus:"off",
+						
+						swipe_threshold: 75,
+						swipe_min_touches: 1,
+						drag_block_vertical: false,
+																		
+																		
+						keyboardNavigation:"off",
+						
+						navigationHAlign:"center",
+						navigationVAlign:"bottom",
+						navigationHOffset:0,
+						navigationVOffset:20,
 
-        }
+						soloArrowLeftHalign:"left",
+						soloArrowLeftValign:"center",
+						soloArrowLeftHOffset:20,
+						soloArrowLeftVOffset:0,
 
-    </script>
-  </body>
-</html>
+						soloArrowRightHalign:"right",
+						soloArrowRightValign:"center",
+						soloArrowRightHOffset:20,
+						soloArrowRightVOffset:0,
+								
+						shadow:0,
+						fullWidth:"on",
+						fullScreen:"off",
+
+												spinner:"spinner1",
+																		
+						stopLoop:"off",
+						stopAfterLoops:-1,
+						stopAtSlide:-1,
+
+						shuffle:"off",
+						
+						autoHeight:"off",						
+						forceFullWidth:"off",						
+												
+												
+						hideTimerBar:"on",						
+						hideThumbsOnMobile:"off",
+						hideNavDelayOnMobile:1500,
+						hideBulletsOnMobile:"off",
+						hideArrowsOnMobile:"off",
+						hideThumbsUnderResolution:0,
+						
+												hideSliderAtLimit:0,
+						hideCaptionAtLimit:0,
+						hideAllCaptionAtLilmit:0,
+						startWithSlide:0,
+						isJoomla: true
+					});
+					
+					
+					
+									}					
+				});	/*ready*/
+									
+			</script>
+			<style type="text/css">
+	#rev_slider_1_1_wrapper .tp-loader.spinner1{ background-color: #FFFFFF !important; }
+</style>
+<div style="visibility:hidden;display:none" class="tp-leftarrow tparrows round hidearrows"><div class="tp-arr-allwrapper"><div class="tp-arr-iwrapper"><div class="tp-arr-imgholder" style="visibility: inherit; opacity: 1; background-image: url(&quot;https://puberty2menopause.com/media/com_uniterevolution2/assets/images/dummy.png&quot;);"></div><div class="tp-arr-imgholder2"></div><div class="tp-arr-titleholder"></div><div class="tp-arr-subtitleholder"></div></div></div></div><div style="visibility:hidden;display:none" class="tp-rightarrow tparrows round hidearrows"><div class="tp-arr-allwrapper"><div class="tp-arr-iwrapper"><div class="tp-arr-imgholder" style="visibility: inherit; opacity: 1; background-image: url(&quot;https://puberty2menopause.com/media/com_uniterevolution2/assets/images/dummy.png&quot;);"></div><div class="tp-arr-imgholder2"></div><div class="tp-arr-titleholder"></div><div class="tp-arr-subtitleholder"></div></div></div></div></div>
+<!-- END REVOLUTION SLIDER -->		                	</div>
+                	</div>
+           </div>
+	
+</div>
+            <div class="clear"></div>
+    </div>
+    
+	
+	
+	
+			
+	<div id="rt-transition">
+		<div id="rt-mainbody-surround">
+						<div id="rt-feature">
+				<div class="rt-container">
+					<div class="rt-grid-12 rt-alpha rt-omega">
+               <div class="rt-block ask-an-expert">
+           	<div class="module-surround">
+	           		                	<div class="module-content">
+	                		
+
+<div class="customask-an-expert">
+	<div>
+<h2>ASK AN EXPERT</h2>
+<h4>Starting from puberty to menopause, a woman’s life is always like a roller coaster journey. They have several health-related questions in their mind but are too embarrassed or shy to ask.</h4>
+<p>Today, technology and Internet they have rewarded us with a lot of information. However, with new knowledge comes a lot of doubts and questions. Do not get stuck with your questions.</p>
+<ul>
+<li>Completely private and confidential</li>
+<li>Instant Access to Doctors</li>
+</ul>
+<p style="text-align: center;"><a href="https://puberty2menopause.com/index.php/ask-an-expert">Connect Now</a></p>
+</div>
+<div><img src="./Home_files/ask-an-expert-doctor.png" alt=""></div></div>
+	                	</div>
+                	</div>
+           </div>
+	
+</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+			
+	
+			
+			
+
+						<div id="rt-utility">
+				<div class="rt-container">
+					<div class="rt-grid-12 rt-alpha rt-omega">
+               <div class="rt-block my-health">
+           	<div class="module-surround">
+	           				<div class="module-title">
+	                		<h2 class="title">I want to know more about my health</h2>
+			</div>
+	                		                	<div class="module-content">
+	                		<div id="jxtcwall95"><div class="module"><div class="showcasejxtcwall95" style="position: relative; display: block; visibility: visible; z-index: 0;"><div class="sframejxtcwall95"><table class="tablejxtcwall95 oddpage singlepage page-1" width="100%" cellpadding="0" cellspacing="0"><tbody><tr class="singlerow oddrow row-1"><td class="firstcol oddcol col-1" style="width:33%"><div class="box">
+	<a href="https://puberty2menopause.com/index.php/women-health-resources/i-am-below-18-years-old">
+		<div class="static">
+			<div class="bg-img"><img alt="I am below 18 years old" src="./Home_files/below_18.png"></div>
+			<div class="static-title"><h3>13-18</h3>
+				<div class="link">View more</div>
+			</div>
+			
+		</div>
+
+	<div class="over-text">
+		<h3>13-18</h3>
+		<div><p>&nbsp;</p>
+</div>
+		<div class="link">View more</div>
+	</div>
+	</a>
+</div></td><td class="centercol evencol col-2" style="width:33%"><div class="box">
+	<a href="https://puberty2menopause.com/index.php/women-health-resources/i-am-19-45-yr-old">
+		<div class="static">
+			<div class="bg-img"><img alt="I am 19-45 yr old" src="./Home_files/19-45-yr-old.png"></div>
+			<div class="static-title"><h3>19-45</h3>
+				<div class="link">View more</div>
+			</div>
+			
+		</div>
+
+	<div class="over-text">
+		<h3>19-45</h3>
+		<div><p>&nbsp;</p>
+</div>
+		<div class="link">View more</div>
+	</div>
+	</a>
+</div></td><td class="lastcol oddcol col-3" style="width:33%"><div class="box">
+	<a href="https://puberty2menopause.com/index.php/women-health-resources/i-am-over-45-years">
+		<div class="static">
+			<div class="bg-img"><img alt="I am over 45 years" src="./Home_files/over-45-years.png"></div>
+			<div class="static-title"><h3>&gt; 45 </h3>
+				<div class="link">View more</div>
+			</div>
+			
+		</div>
+
+	<div class="over-text">
+		<h3>&gt; 45 </h3>
+		<div><p>&nbsp;</p>
+</div>
+		<div class="link">View more</div>
+	</div>
+	</a>
+</div></td></tr></tbody></table></div></div></div>
+</div>	                	</div>
+                	</div>
+           </div>
+	
+</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+			
+
+						<div id="rt-maintop">
+				<div class="rt-container">
+					<div class="rt-grid-9 rt-alpha">
+               <div class="rt-block articles-display">
+           	<div class="module-surround">
+	           		                	<div class="module-content">
+	                		<div id="jxtcwall98"><div class="module"><div class="showcasejxtcwall98" style="position: relative; display: block; visibility: visible; overflow: hidden; z-index: 0; width: 850px; height: 575px;"><div class="sframejxtcwall98" style="position: absolute; display: block; visibility: visible; width: 850px; height: 575px; opacity: 0; z-index: 1;"><table class="tablejxtcwall98 oddpage firstpage page-1" width="100%" cellpadding="0" cellspacing="0"><tbody><tr class="singlerow oddrow row-1"><td class="singlecol oddcol col-1" style="width:100%"><div class="box">
+	<a href="https://puberty2menopause.com/index.php/women-health-resources/i-am-below-18-years-old/puberty/physical-and-hormonal-changes-during-puberty">
+		<div class="static">
+			<div class="bg-img"><img alt="Physical and hormonal changes during puberty" src="./Home_files/physical-and-hormonal-changes-during-puberty.jpg"></div>
+			<div class="static-title">
+				<h4>Puberty</h4>
+				<h3>Physical and hormonal changes during puberty</h3>
+				<div>Children usually grow fast. In girls, between 10 and 14 years, and boys, between 12 and 16 years, you may notice a sudden increase in height</div>
+			</div>
+			
+		</div>
+	</a>
+</div>
+
+
+       </td></tr></tbody></table></div><div class="sframejxtcwall98" style="display: block; position: absolute; visibility: visible; width: 850px; height: 575px; opacity: 0; z-index: 1;"><table class="tablejxtcwall98 evenpage centerpage page-2" width="100%" cellpadding="0" cellspacing="0"><tbody><tr class="singlerow oddrow row-1"><td class="singlecol oddcol col-1" style="width:100%"><div class="box">
+	<a href="https://puberty2menopause.com/index.php/women-health-resources/i-am-below-18-years-old/puberty/how-does-it-feel-to-get-periods-for-the-first-time">
+		<div class="static">
+			<div class="bg-img"><img alt="How does it feel to get periods for the first time?" src="./Home_files/how-does-it-feel-to-get-periods-for-the-first-time.jpg"></div>
+			<div class="static-title">
+				<h4>Puberty</h4>
+				<h3>How does it feel to get periods for the first time?</h3>
+				<div>Periods for the first time, can be exciting, scary, sad or all at the same time; but they are a natural part of every girl’s life.
+Accordin</div>
+			</div>
+			
+		</div>
+	</a>
+</div>
+
+
+       </td></tr></tbody></table></div><div class="sframejxtcwall98" style="display: block; position: absolute; visibility: visible; width: 850px; height: 575px; opacity: 0; z-index: 1;"><table class="tablejxtcwall98 oddpage centerpage page-3" width="100%" cellpadding="0" cellspacing="0"><tbody><tr class="singlerow oddrow row-1"><td class="singlecol oddcol col-1" style="width:100%"><div class="box">
+	<a href="https://puberty2menopause.com/index.php/women-health-resources/i-am-below-18-years-old/puberty/eating-well-important-for-pubertal-girls">
+		<div class="static">
+			<div class="bg-img"><img alt="Eating well: Important for pubertal girls" src="./Home_files/eating-well-important-for-pubertal-girls.jpg"></div>
+			<div class="static-title">
+				<h4>Puberty</h4>
+				<h3>Eating well: Important for pubertal girls</h3>
+				<div>When you hit puberty (the time your body matures into an adult’s body), you may begin to gain weight. To meet the ‘standards of shape or fig</div>
+			</div>
+			
+		</div>
+	</a>
+</div>
+
+
+       </td></tr></tbody></table></div><div class="sframejxtcwall98" style="display: block; position: absolute; visibility: visible; width: 850px; height: 575px; opacity: 0; z-index: 1;"><table class="tablejxtcwall98 evenpage centerpage page-4" width="100%" cellpadding="0" cellspacing="0"><tbody><tr class="singlerow oddrow row-1"><td class="singlecol oddcol col-1" style="width:100%"><div class="box">
+	<a href="https://puberty2menopause.com/index.php/women-health-resources/i-am-below-18-years-old/puberty/adapting-to-your-growing-body">
+		<div class="static">
+			<div class="bg-img"><img alt="Adapting to your growing body" src="./Home_files/adapting-to-your-growing-body.jpg"></div>
+			<div class="static-title">
+				<h4>Puberty</h4>
+				<h3>Adapting to your growing body</h3>
+				<div>Teenage years bring about a lot of changes in your body. You will have physical changes, emotional changes, and many other changes. Sometime</div>
+			</div>
+			
+		</div>
+	</a>
+</div>
+
+
+       </td></tr></tbody></table></div><div class="sframejxtcwall98" style="display: block; position: absolute; visibility: visible; width: 850px; height: 575px; opacity: 1; z-index: 17;"><table class="tablejxtcwall98 oddpage centerpage page-5" width="100%" cellpadding="0" cellspacing="0"><tbody><tr class="singlerow oddrow row-1"><td class="singlecol oddcol col-1" style="width:100%"><div class="box">
+	<a href="https://puberty2menopause.com/index.php/women-health-resources/i-am-below-18-years-old/puberty/vagina-itch-what-could-be-the-reasons-in-young-girls">
+		<div class="static">
+			<div class="bg-img"><img alt="Vagina itch- What could be the reasons in young girls?" src="./Home_files/vagina-itch-what-could-be-the-reasons-in-young-girls.jpg"></div>
+			<div class="static-title">
+				<h4>Puberty</h4>
+				<h3>Vagina itch- What could be the reasons in young girls?</h3>
+				<div>Got an itchy sensation down there? There’s no worse feeling than experiencing a vaginal itch in public. Don’t be embarrassed, you’re not alo</div>
+			</div>
+			
+		</div>
+	</a>
+</div>
+
+
+       </td></tr></tbody></table></div><div class="sframejxtcwall98" style="display: block; position: absolute; visibility: visible; width: 850px; height: 575px; opacity: 0; z-index: 1;"><table class="tablejxtcwall98 evenpage centerpage page-6" width="100%" cellpadding="0" cellspacing="0"><tbody><tr class="singlerow oddrow row-1"><td class="singlecol oddcol col-1" style="width:100%"><div class="box">
+	<a href="https://puberty2menopause.com/index.php/women-health-resources/i-am-below-18-years-old/puberty/vaginal-itch-preventing-its-recurrence">
+		<div class="static">
+			<div class="bg-img"><img alt="Vaginal Itch- Preventing its Recurrence" src="./Home_files/vaginal-itch-preventing-its-recurrence.jpg"></div>
+			<div class="static-title">
+				<h4>Puberty</h4>
+				<h3>Vaginal Itch- Preventing its Recurrence</h3>
+				<div>Itching and irritation of the genital area is an extremely frustrating and painful symptom that most women tend to experience. A recent surv</div>
+			</div>
+			
+		</div>
+	</a>
+</div>
+
+
+       </td></tr></tbody></table></div><div class="sframejxtcwall98" style="display: block; position: absolute; visibility: visible; width: 850px; height: 575px; opacity: 0; z-index: 1;"><table class="tablejxtcwall98 oddpage lastpage page-7" width="100%" cellpadding="0" cellspacing="0"><tbody><tr class="singlerow oddrow row-1"><td class="singlecol oddcol col-1" style="width:100%"><div class="box">
+	<a href="https://puberty2menopause.com/index.php/women-health-resources/i-am-below-18-years-old/puberty/urinary-tract-infection-in-women">
+		<div class="static">
+			<div class="bg-img"><img alt="Urinary Tract Infection in Women" src="./Home_files/urinary-tract-infection-in-women.jpg"></div>
+			<div class="static-title">
+				<h4>Puberty</h4>
+				<h3>Urinary Tract Infection in Women</h3>
+				<div>Do you have an intense urge to urinate, discomfort while urinating, or do you urinate frequently? These are symptoms of urinary tract infect</div>
+			</div>
+			
+		</div>
+	</a>
+</div>
+
+
+       </td></tr></tbody></table></div></div></div>
+</div>	                	</div>
+                	</div>
+           </div>
+	
+</div>
+<div class="rt-grid-3 rt-omega">
+               <div class="rt-block tools-display">
+           	<div class="module-surround">
+	           		                	<div class="module-content">
+	                		<div id="jxtcwall97"><div class="module"><div class="showcasejxtcwall97" style="position: relative; display: block; visibility: visible; z-index: 0;"><div class="sframejxtcwall97"><table class="tablejxtcwall97 oddpage singlepage page-1" width="100%" cellpadding="0" cellspacing="0"><tbody><tr class="firstrow oddrow row-1"><td class="singlecol oddcol col-1" style="width:100%"><div class="box">
+	<a href="https://puberty2menopause.com/index.php/video">
+		<div class="static">
+			<div class="bg-img"><img alt="Video" src="./Home_files/video.jpg"></div>
+			<div class="static-title">
+				<h3>Video</h3>
+				<div>  </div>
+			</div>
+		</div>
+	</a>
+</div>
+
+
+       </td></tr><tr class="lastrow evenrow row-2"><td class="singlecol oddcol col-1" style="width:100%"><div class="box">
+	<a href="https://puberty2menopause.com/index.php/quiz">
+		<div class="static">
+			<div class="bg-img"><img alt="Quiz" src="./Home_files/quiz.jpg"></div>
+			<div class="static-title">
+				<h3>Quiz</h3>
+				<div>  </div>
+			</div>
+		</div>
+	</a>
+</div>
+
+
+       </td></tr></tbody></table></div></div></div>
+</div>	                	</div>
+                	</div>
+           </div>
+	
+</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+			
+
+						<div class="rt-container">
+		    		          
+<div id="rt-main" class="mb12">
+                <div class="rt-container">
+                    <div class="rt-grid-12 ">
+                                                <div id="rt-content-top">
+                            <div class="rt-grid-12 rt-alpha rt-omega">
+               <div class="rt-block articles-display">
+           	<div class="module-surround">
+	           		                	<div class="module-content">
+	                		<div id="jxtcwall96"><div class="module"><div class="showcasejxtcwall96" style="position: relative; display: block; visibility: visible; z-index: 0;"><div class="sframejxtcwall96"><table class="tablejxtcwall96 oddpage singlepage page-1" width="100%" cellpadding="0" cellspacing="0"><tbody><tr class="firstrow oddrow row-1"><td class="firstcol oddcol col-1" style="width:33%"><div class="box">
+	<a href="https://puberty2menopause.com/index.php/women-health-resources/i-am-below-18-years-old/menstrual-health/myths-and-facts-related-to-periods">
+		<div class="static">
+			<div class="bg-img"><img alt="Myths and facts related to periods" src="./Home_files/myths-and-facts-related-to-periods.jpg"></div>
+			<div class="static-title">
+				<h4>Menstrual health</h4>
+				<h3>Myths and facts related to periods</h3>
+				<div>Let’s talk about one of our not-so-favorite topic “periods”, our monthly companion from teen-hood to middle age.
+Menstruation, commonly ref</div>
+			</div>
+			
+		</div>
+	</a>
+</div>
+
+
+       </td><td class="centercol evencol col-2" style="width:33%"><div class="box">
+	<a href="https://puberty2menopause.com/index.php/women-health-resources/i-am-over-45-years/overall-wellbeing/maintaining-social-life-during-old-age">
+		<div class="static">
+			<div class="bg-img"><img alt="Maintaining Social life during old age" src="./Home_files/maintaining-social-life-during-old-age.jpg"></div>
+			<div class="static-title">
+				<h4>Social support during old age</h4>
+				<h3>Maintaining Social life during old age</h3>
+				<div>Aristotle, the Greek philosopher said, “Man is by nature a social animal”. Man cannot live all by himself; he needs other beings to survive.</div>
+			</div>
+			
+		</div>
+	</a>
+</div>
+
+
+       </td><td class="lastcol oddcol col-3" style="width:33%"><div class="box">
+	<a href="https://puberty2menopause.com/index.php/women-health-resources/i-am-over-45-years/menopause/vaginal-health-during-menopause">
+		<div class="static">
+			<div class="bg-img"><img alt="Vaginal health during menopause" src="./Home_files/vaginal-health-during-menopause.jpg"></div>
+			<div class="static-title">
+				<h4>Menopause</h4>
+				<h3>Vaginal health during menopause</h3>
+				<div>Menopause likely invokes the images of mood swings and hot flashes. But have you ever thought how menopause impacts your vagina?
+As you age</div>
+			</div>
+			
+		</div>
+	</a>
+</div>
+
+
+       </td></tr><tr class="centerrow evenrow row-2"><td class="firstcol oddcol col-1" style="width:33%"><div class="box">
+	<a href="https://puberty2menopause.com/index.php/women-health-resources/i-am-below-18-years-old/menstrual-health/coping-with-pms">
+		<div class="static">
+			<div class="bg-img"><img alt="Coping with PMS" src="./Home_files/coping-with-pms.jpg"></div>
+			<div class="static-title">
+				<h4>Menstrual health</h4>
+				<h3>Coping with PMS</h3>
+				<div>Most women become unstable during the days before periods. One minute they feel fine, quite happy and the next minute they become easily ann</div>
+			</div>
+			
+		</div>
+	</a>
+</div>
+
+
+       </td><td class="centercol evencol col-2" style="width:33%"><div class="box">
+	<a href="https://puberty2menopause.com/index.php/women-health-resources/i-am-19-45-yr-old/breastfeeding/breastfeeding-all-you-wanted-to-know">
+		<div class="static">
+			<div class="bg-img"><img alt="Breastfeeding: All you wanted to know" src="./Home_files/breastfeeding-all-you-wanted-to-know.jpg"></div>
+			<div class="static-title">
+				<h4>Breastfeeding</h4>
+				<h3>Breastfeeding: All you wanted to know</h3>
+				<div>Giving birth to a baby brings great joy in your life. Being a mother, you become more responsible and ensure that your baby receives the bes</div>
+			</div>
+			
+		</div>
+	</a>
+</div>
+
+
+       </td><td class="lastcol oddcol col-3" style="width:33%"><div class="box">
+	<a href="https://puberty2menopause.com/index.php/women-health-resources/i-am-19-45-yr-old/infertility/infertility-in-women-causes-and-potential-solutions">
+		<div class="static">
+			<div class="bg-img"><img alt="Infertility in women: Causes and potential solutions" src="./Home_files/infertility-in-women-causes-and-potential-solutions.jpg"></div>
+			<div class="static-title">
+				<h4>Infertility and fertility treatments</h4>
+				<h3>Infertility in women: Causes and potential solutions</h3>
+				<div>Did you know one in every four couples are affected with infertility in developing countries? Infertility is a common and serious health con</div>
+			</div>
+			
+		</div>
+	</a>
+</div>
+
+
+       </td></tr><tr class="centerrow oddrow row-3"><td class="firstcol oddcol col-1" style="width:33%"><div class="box">
+	<a href="https://puberty2menopause.com/index.php/women-health-resources/i-am-19-45-yr-old/pregnancy-and-labor/early-signs-of-pregnancy">
+		<div class="static">
+			<div class="bg-img"><img alt="Early signs of pregnancy" src="./Home_files/early-signs-of-pregnancy.jpg"></div>
+			<div class="static-title">
+				<h4> Pregnancy and Labor</h4>
+				<h3>Early signs of pregnancy</h3>
+				<div>Entering motherhood is one of the most beautiful phases in a woman’s life. If you have been trying to conceive, especially for the first tim</div>
+			</div>
+			
+		</div>
+	</a>
+</div>
+
+
+       </td><td class="centercol evencol col-2" style="width:33%"><div class="box">
+	<a href="https://puberty2menopause.com/index.php/women-health-resources/i-am-below-18-years-old/menstrual-health/choosing-the-best-sanitary-pads-for-your-unique-menstrual-needs">
+		<div class="static">
+			<div class="bg-img"><img alt="Choosing the best sanitary pads for your unique menstrual needs" src="./Home_files/choosing-the-best-sanitary-pads-for-your-unique-menstrual-needs.jpg"></div>
+			<div class="static-title">
+				<h4>Menstrual health</h4>
+				<h3>Choosing the best sanitary pads for your unique menstrual needs</h3>
+				<div>Every girl or woman will have an embarrassing story about the period leak. The leak while sleeping is quite common among women. But it is mo</div>
+			</div>
+			
+		</div>
+	</a>
+</div>
+
+
+       </td><td class="lastcol oddcol col-3" style="width:33%"><div class="box">
+	<a href="https://puberty2menopause.com/index.php/women-health-resources/covid-19-and-women-health/self-care-measures-for-women-during-the-covid-19-pandemic">
+		<div class="static">
+			<div class="bg-img"><img alt="Self-care measures for women during the covid-19 pandemic" src="./Home_files/self-care-measures-for-women-during-the-covid-19-pandemic.jpg"></div>
+			<div class="static-title">
+				<h4>Covid-19 and Women Health</h4>
+				<h3>Self-care measures for women during the covid-19 pandemic</h3>
+				<div>The current pandemic has brought extreme uncertainty in all our lives. There has been a great change in lifestyles and work cultures as we a</div>
+			</div>
+			
+		</div>
+	</a>
+</div>
+
+
+       </td></tr><tr class="lastrow evenrow row-4"><td class="firstcol oddcol col-1" style="width:33%"><div class="box">
+	<a href="https://puberty2menopause.com/index.php/women-health-resources/covid-19-and-women-health/covid-19-and-its-impact-on-women-s-mental-health">
+		<div class="static">
+			<div class="bg-img"><img alt="Covid-19 and its impact on women’s mental health" src="./Home_files/covid-19-and-its-impact-on-women-s-mental-health.jpg"></div>
+			<div class="static-title">
+				<h4>Covid-19 and Women Health</h4>
+				<h3>Covid-19 and its impact on women’s mental health</h3>
+				<div>The covid-19 pandemic has taken a toll on mental health, especially in women. Due to the dangerous spread of this disease, the immediate mea</div>
+			</div>
+			
+		</div>
+	</a>
+</div>
+
+
+       </td><td class="centercol evencol col-2" style="width:33%"><div class="box">
+	<a href="https://puberty2menopause.com/index.php/women-health-resources/i-am-19-45-yr-old/health-and-wellness/reproductive-health-practices-every-woman-should-follow">
+		<div class="static">
+			<div class="bg-img"><img alt="Reproductive health practices every woman should follow" src="./Home_files/reproductive-health-practices-every-woman-should-follow.jpg"></div>
+			<div class="static-title">
+				<h4>Health and wellness</h4>
+				<h3>Reproductive health practices every woman should follow</h3>
+				<div>The reproductive system of a woman is a delicate and complex system that impacts various other organs in the body. It is important for our o</div>
+			</div>
+			
+		</div>
+	</a>
+</div>
+
+
+       </td><td class="lastcol oddcol col-3" style="width:33%"><div class="box">
+	<a href="https://puberty2menopause.com/index.php/women-health-resources/i-am-below-18-years-old/menstrual-health/premenstrual-syndrome-do-i-have-it">
+		<div class="static">
+			<div class="bg-img"><img alt="Premenstrual syndrome- Do I have it?" src="./Home_files/premenstrual-syndrome-do-i-have-it.jpg"></div>
+			<div class="static-title">
+				<h4>Menstrual health</h4>
+				<h3>Premenstrual syndrome- Do I have it?</h3>
+				<div>Before your period arrives, you may feel like your emotions are all over the place. You go from feeling sad, to happy, to angry or confused</div>
+			</div>
+			
+		</div>
+	</a>
+</div>
+
+
+       </td></tr></tbody></table></div></div></div>
+</div>	                	</div>
+                	</div>
+           </div>
+	
+</div>
+                        </div>
+                                                						<div class="rt-block">
+	                        <div id="rt-mainbody">
+								<div class="component-content">
+	                            	<section class="blog-featured " itemscope="" itemtype="http://schema.org/Blog">
+
+
+</section>
+								</div>
+	                        </div>
+						</div>
+                                                                        <div id="rt-content-bottom">
+                            <div class="rt-grid-12 rt-alpha rt-omega">
+               <div class="rt-block experts-talk">
+           	<div class="module-surround">
+	           				<div class="module-title">
+	                		<h2 class="title">Experts Talk</h2>
+			</div>
+	                		                	<div class="module-content">
+	                		<div id="jxtcwall99"><div class="testimonials_mod">
+	<div class="showcasejxtcwall99" style="position: relative; display: block; visibility: visible; overflow: hidden; z-index: 0; width: 1155px; height: 225px;"><div class="sframejxtcwall99" style="position: absolute; display: block; visibility: visible; width: 1155px; height: 225px; opacity: 0; z-index: 1;"><table class="tablejxtcwall99 oddpage firstpage page-1" width="100%" cellpadding="0" cellspacing="0"><tbody><tr class="singlerow oddrow row-1"><td class="firstcol oddcol col-1" style="width:33%"><div class="slide">
+	
+	<!-- START: Modals --><a class="modal modal_link rl_modals_element" href="https://www.youtube.com/embed/7221NhY0BDc?wmode=transparent" aria-label="Popup link" data-modal-iframe="true" data-modal-inner-width="95%" data-modal-inner-height="95%" data-modal-video="true" data-modal-class-name="is_video no_title" data-modal-done="1"><!-- END: Modals -->
+		<div class="overlay"></div>
+		<div class="slidewrap">
+			<img alt="International Day of Health for Women" src="./Home_files/international-day-of-health-for-women.jpg">	
+			<div class="contentwrap">
+			</div>
+		</div>
+	</a>		
+</div>
+</td><td class="centercol evencol col-2" style="width:33%"><div class="slide">
+	
+	<!-- START: Modals --><a class="modal modal_link rl_modals_element" href="https://www.youtube.com/embed/RD0k21bkTIo?wmode=transparent" aria-label="Popup link" data-modal-iframe="true" data-modal-inner-width="95%" data-modal-inner-height="95%" data-modal-video="true" data-modal-class-name="is_video no_title" data-modal-done="1"><!-- END: Modals -->
+		<div class="overlay"></div>
+		<div class="slidewrap">
+			<img alt="Importance of Breastfeeding" src="./Home_files/importance-of-breastfeeding.jpg">	
+			<div class="contentwrap">
+			</div>
+		</div>
+	</a>		
+</div>
+</td><td class="lastcol oddcol col-3" style="width:33%"><div class="slide">
+	
+	<!-- START: Modals --><a class="modal modal_link rl_modals_element" href="https://www.youtube.com/embed/Is99Rkx5hQg?wmode=transparent" aria-label="Popup link" data-modal-iframe="true" data-modal-inner-width="95%" data-modal-inner-height="95%" data-modal-video="true" data-modal-class-name="is_video no_title" data-modal-done="1"><!-- END: Modals -->
+		<div class="overlay"></div>
+		<div class="slidewrap">
+			<img alt="Awareness on Digestive Health" src="./Home_files/awareness-on-digestive-health.jpg">	
+			<div class="contentwrap">
+			</div>
+		</div>
+	</a>		
+</div>
+</td></tr></tbody></table></div><div class="sframejxtcwall99" style="display: block; position: absolute; visibility: visible; width: 1155px; height: 225px; opacity: 1; z-index: 12;"><table class="tablejxtcwall99 evenpage lastpage page-2" width="100%" cellpadding="0" cellspacing="0"><tbody><tr class="singlerow oddrow row-1"><td class="firstcol oddcol col-1" style="width:33%"><div class="slide">
+	
+	<!-- START: Modals --><a class="modal modal_link rl_modals_element" href="https://www.youtube.com/embed/xHl3-pjzxf0?wmode=transparent" aria-label="Popup link" data-modal-iframe="true" data-modal-inner-width="95%" data-modal-inner-height="95%" data-modal-video="true" data-modal-class-name="is_video no_title" data-modal-done="1"><!-- END: Modals -->
+		<div class="overlay"></div>
+		<div class="slidewrap">
+			<img alt="Nutrition and Vaginal Health" src="./Home_files/nutrition-and-vaginal-health.jpg">	
+			<div class="contentwrap">
+			</div>
+		</div>
+	</a>		
+</div>
+</td><td class="centercol evencol col-2" style="width:33%"><div class="slide">
+	
+	<!-- START: Modals --><a class="modal modal_link rl_modals_element" href="https://www.youtube.com/embed/5c31At8Q2zk?wmode=transparent" aria-label="Popup link" data-modal-iframe="true" data-modal-inner-width="95%" data-modal-inner-height="95%" data-modal-video="true" data-modal-class-name="is_video no_title" data-modal-done="1"><!-- END: Modals -->
+		<div class="overlay"></div>
+		<div class="slidewrap">
+			<img alt="Benefits of healthy nutrition" src="./Home_files/benefits-of-healthy-nutrition.jpg">	
+			<div class="contentwrap">
+			</div>
+		</div>
+	</a>		
+</div>
+</td><td class="lastcol oddcol col-3" style="width:33%"><div class="slide">
+	
+	<!-- START: Modals --><a class="modal modal_link rl_modals_element" href="https://www.youtube.com/embed/0ttfYIuNolA?wmode=transparent" aria-label="Popup link" data-modal-iframe="true" data-modal-inner-width="95%" data-modal-inner-height="95%" data-modal-video="true" data-modal-class-name="is_video no_title" data-modal-done="1"><!-- END: Modals -->
+		<div class="overlay"></div>
+		<div class="slidewrap">
+			<img alt="Vaginosis and Vaginitis" src="./Home_files/vaginosis-and-vaginitis.jpg">	
+			<div class="contentwrap">
+			</div>
+		</div>
+	</a>		
+</div>
+</td></tr></tbody></table></div></div>
+</div>
+
+</div>	                	</div>
+                	</div>
+           </div>
+	
+</div>
+                        </div>
+                                            </div>
+                                        <div class="clear"></div>
+                </div>
+            </div>
+		    </div>
+			
+			
+			
+
+			
+					</div>
+	</div>
+		<div id="rt-bottom">
+		<div class="rt-container">
+			<div class="rt-grid-12 rt-alpha rt-omega">
+               <div class="rt-block locate-a-clinic">
+           	<div class="module-surround">
+	           		                	<div class="module-content">
+	                		
+
+<div class="customlocate-a-clinic">
+	<h3>Locate a Clinic</h3>
+<p>Help you to find the best clinic and hospitals near you</p>
+<p><a href="https://puberty2menopause.com/index.php/find-a-clinic">Search Here</a></p></div>
+	                	</div>
+                	</div>
+           </div>
+	
+</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+			<footer id="rt-footer-surround">
+				<div id="rt-footer">
+			<div class="rt-container">
+				<div class="rt-grid-2 rt-alpha">
+               <div class="rt-block footer-logo">
+           	<div class="module-surround">
+	           		                	<div class="module-content">
+	                		
+
+<div class="customfooter-logo">
+	<p><img src="./Home_files/logo.png" alt=""></p></div>
+	                	</div>
+                	</div>
+           </div>
+	
+</div>
+<div class="rt-grid-10 rt-omega">
+               <div class="rt-block sml">
+           	<div class="module-surround">
+	           		                	<div class="module-content">
+	                		
+
+<div class="customsml">
+	<ul>
+<li class="fb"><a href="https://www.facebook.com/Puberty2Menopause-103170395161685" target="_blank" rel="noopener noreferrer">fb</a></li>
+<li class="tw"><a href="https://www.facebook.com/Puberty2Menopause-103170395161685" target="_blank" rel="noopener noreferrer">tw</a></li>
+<li class="in"><a href="https://www.linkedin.com/company/puberty2menopause/" target="_blank" rel="noopener noreferrer">in</a></li>
+<!--<li class="yt"><a href="#" target="&quot;_blank">yt</a></li>-->
+<li class="ig"><a href="https://www.instagram.com/puberty2menopause_/" target="&quot;_blank">ig</a></li>
+<!--<li class="mail"><a href="#" target="_blank" rel="noopener noreferrer">mail</a></li>--></ul></div>
+	                	</div>
+                	</div>
+           </div>
+	           <div class="rt-block footer-menu">
+           	<div class="module-surround">
+	           		                	<div class="module-content">
+	                		<ul class="nav menu mod-list">
+<li class="item-102 parent"><a href="https://puberty2menopause.com/#">Women Health Resources</a></li><li class="item-103"><a href="https://puberty2menopause.com/index.php/ask-an-expert">Ask an expert</a></li><li class="item-191"><a href="https://puberty2menopause.com/index.php/find-a-clinic">Find a clinic</a></li><li class="item-105"><a href="https://puberty2menopause.com/index.php/video">Video</a></li><li class="item-107"><a href="https://puberty2menopause.com/index.php/tool">Tools</a></li><li class="item-198"><a href="https://puberty2menopause.com/index.php/doctor-registration">Doctor Registration</a></li><li class="item-203"><a href="https://puberty2menopause.com/index.php/quiz">Quiz</a></li><li class="item-206"><a href="https://puberty2menopause.com/index.php/about-us">About Us</a></li></ul>
+	                	</div>
+                	</div>
+           </div>
+	           <div class="rt-block footer-menu-cr">
+           	<div class="module-surround">
+	           		                	<div class="module-content">
+	                		<ul class="nav menu mod-list">
+<li class="item-199"><a href="https://puberty2menopause.com/index.php/privacy-policy">Privacy Policy</a></li><li class="item-200"><a href="https://puberty2menopause.com/index.php/terms-of-use">Terms of use</a></li><li class="item-201"><a href="https://puberty2menopause.com/index.php/terms-of-use-doctors">Terms of Use Doctors</a></li></ul>
+	                	</div>
+                	</div>
+           </div>
+	
+</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+					</footer>
+			      <!-- This site is converting visitors into subscribers and customers with https://respond.io --><script id="respondio__widget" src="./Home_files/widget.js.download"></script><!-- https://respond.io -->
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="./Home_files/js(1)"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KNLNR5PS67');
+</script>
+
+<script samesite="None; Secure" src="./Home_files/landbot-3.0.0.js.download"></script>
+<script>
+  var myLandbot = new Landbot.Livechat({
+    configUrl: 'https://chats.landbot.io/v3/H-884050-JG44Y0JLYFIU6NJV/index.json',
+  });
+</script>
+  
+
+	</div><div></div></div></div>
+
+<div id="rl_modals_overlay" style="display: none;"></div><div id="rl_modals" role="dialog" aria-hidden="true" aria-labelledby="rl_modals_title" aria-describedby="rl_modals_current" style="display: none;"><div id="rl_modals_wrapper"><div><div id="rl_modals_top_left" style="float: left;"></div><div id="rl_modals_top_center" style="float: left;"></div><div id="rl_modals_top_right" style="float: left;"></div></div><div style="clear: left;"><div id="rl_modals_middle_left" style="float: left;"></div><div id="rl_modals_content" style="float: left;"><div id="rl_modals_title" aria-live="polite" style="float: left;"></div><div id="rl_modals_current" style="float: left;"></div><button type="button" id="rl_modals_previous" aria-hidden="true">previous</button><button type="button" id="rl_modals_next" aria-hidden="true">next</button><button type="button" id="rl_modals_slideshow" aria-hidden="true">start slideshow</button><div id="rl_modals_loading_overlay" style="float: left;"></div><div id="rl_modals_loading_graphic" style="float: left;"></div></div><div id="rl_modals_middle_right" style="float: left;"></div></div><div style="clear: left;"><div id="rl_modals_bottom_left" style="float: left;"></div><div id="rl_modals_bottom_center" style="float: left;"></div><div id="rl_modals_bottom_right" style="float: left;"></div></div></div><div style="position: absolute; width: 9999px; visibility: hidden; display: none; max-width: none;"></div></div><div id="_68625"></div><div><div class="sc-tsGVs sc-dSnXvR jkUEWY UOcTm LandbotLivechat"><iframe frameborder="0" style="width: 100%; height: 100%;" src="./Home_files/saved_resource.html"></iframe></div></div><div class="jxtcpopup" style="opacity: 0; display: none;"><div title="Close" class="jxtcpopupclose"></div><div title="Move" class="jxtcpopupdrag"></div><div class="jxtcinner"></div></div><div class="jxtcpopup" style="opacity: 0; display: none;"><div title="Close" class="jxtcpopupclose"></div><div title="Move" class="jxtcpopupdrag"></div><div class="jxtcinner"></div></div><div class="jxtcpopup" style="opacity: 0; display: none;"><div title="Close" class="jxtcpopupclose"></div><div title="Move" class="jxtcpopupdrag"></div><div class="jxtcinner"></div></div><div class="jxtcpopup" style="opacity: 0; display: none;"><div title="Close" class="jxtcpopupclose"></div><div title="Move" class="jxtcpopupdrag"></div><div class="jxtcinner"></div></div><div class="jxtcpopup" style="opacity: 0; display: none;"><div title="Close" class="jxtcpopupclose"></div><div title="Move" class="jxtcpopupdrag"></div><div class="jxtcinner"></div></div></body></html>
